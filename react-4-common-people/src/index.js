@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const element = <h1>Hello, world!</h1>;
+const Welcome = function(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
 
-ReactDOM.render(element, document.getElementById('root'));
+ReactDOM.render(<Welcome name={"common people"} />, document.getElementById('root'));
