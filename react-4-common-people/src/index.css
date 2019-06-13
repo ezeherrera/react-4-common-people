@@ -8,9 +8,14 @@ body {
   color: #262626;
 }
 
-h1 {
+#root {
   position: absolute;
-  top: 45%;
+  top: 47.5%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+h1,
+h2 {
+  text-align: center;
 }
