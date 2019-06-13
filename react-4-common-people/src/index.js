@@ -10,11 +10,16 @@ import './index.css';
 </div>;
 } */ 
 
+const welcomings = ["Hello", "Hallo", "Hola", "Ciao", "Bonjour", "Привет", "こんにちは", "مرحبا", "Olá", "Kaixo"];
+
 // Stateful class component
 class Welcome extends React.Component {
+  counter = 0; // class attributes does NOT re-render the component
+
   constructor() {
     super();
     this.state = {
+      hello: welcomings[0],
       date: new Date(),
     }
   }
@@ -26,19 +31,31 @@ class Welcome extends React.Component {
     );
   };
 
+  // Component will update ONLY if expression is true
+  shouldComponentUpdate() {
+    return this.counter % 5 === 0;
+  }
+
+  // Run code AFTER component updates
+  componentDidUpdate() {
+  };
+
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
 
   tick() {
+    this.counter++;
+    const random = Math.floor(Math.random() * (welcomings.length));
     this.setState({
-      date: new Date()
+      date: new Date(),
+      hello: welcomings[random],
     });
   }
 
   render() {
     return <div>
-      <h1>Hello, {this.props.name}!</h1>
+      <h1>{this.state.hello}, {this.props.name}!</h1>
       <h2>It is {this.state.date.toLocaleString()}.</h2>
     </div>;
   }
