@@ -117,6 +117,7 @@ button {
 }
 .list .item {
   display: inline-block;
+  vertical-align: top;
   width: 31%;
   margin: 0 1% 15px;
 }
