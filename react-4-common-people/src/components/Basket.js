@@ -20,7 +20,7 @@ class Basket extends React.Component {
         { this.state.items.map(item => (
           <li className="item" key={item.id}>
             <h4 className="title">{item.title}}</h4>
-            <span className="price">{item.price.toFixed(2)}€</span>
+            <span className="price">{parseFloat(item.price).toFixed(2)}€</span>
             <button>Quitar</button>
           </li>
         ))}
