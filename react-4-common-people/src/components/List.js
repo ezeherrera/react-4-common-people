@@ -6,7 +6,7 @@ const List = (props) => (
   <ul className="list">
     { props.books.map( function(book) {
       return (
-        <li className="item" id={book.id}>
+        <li className="item" key={book.id}>
           <Book
             cover={book.cover}
             title={book.title}
