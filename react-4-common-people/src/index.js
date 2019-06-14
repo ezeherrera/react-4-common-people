@@ -22,7 +22,9 @@ class App extends React.Component {
   addBookToBasket(book){
     this.setState(state => {
       const basket = state.basket;
-      basket.push(book);
+      if (!basket.includes(book)) {
+        basket.push(book);
+      }
       return { basket };
     });
   }
