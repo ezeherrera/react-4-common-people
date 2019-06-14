@@ -2,9 +2,9 @@ import React from 'react';
 
 const Book = (props) => (
   <div className="book">
-    <img className="cover" alt="Titulo" src="./books/cover01.jpg" />
-    <h3 className="title">ANNA FRANK. EL TESTIMONI DE L'HOLOCAUST</h3>
-    <span className="price">14,20€</span>
+    <img className="cover" alt="Titulo" src={`./books/${props.cover}`} />
+    <h3 className="title">{props.title}</h3>
+    <span className="price">{props.price}</span>
     <button>Añadir a mi cesta</button>
   </div>
 );

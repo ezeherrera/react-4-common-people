@@ -2,26 +2,19 @@ import React from 'react';
 
 import Book from './Book';
 
-const List = () => (
+const List = (props) => (
   <ul className="list">
-    <li className="item">
-      <Book />
-    </li>
-    <li className="item">
-      <Book />
-    </li>
-    <li className="item">
-      <Book />
-    </li>
-    <li className="item">
-      <Book />
-    </li>
-    <li className="item">
-      <Book />
-    </li>
-    <li className="item">
-      <Book />
-    </li>
+    { props.books.map( function(book) {
+      return (
+        <li className="item" id={book.id}>
+          <Book
+            cover={book.cover}
+            title={book.title}
+            price={book.price}
+          />
+        </li>
+      )
+    })}
   </ul>
 );
 
