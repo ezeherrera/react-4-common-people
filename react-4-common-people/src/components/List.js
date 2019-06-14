@@ -11,6 +11,7 @@ const List = (props) => (
             cover={book.cover}
             title={book.title}
             price={book.price}
+            onAddToBasket={() => props.onAddBookToBasket(book)}
           />
         </li>
       )
