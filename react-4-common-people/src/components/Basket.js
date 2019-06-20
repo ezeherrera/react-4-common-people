@@ -3,17 +3,6 @@ import React from 'react';
 class Basket extends React.Component {
   constructor() {
     super();
-
-    this.state = {
-      items: [],
-      total: 0,
-    }
-  }
-
-  componentDidMount() {
-    this.setState({
-      items: this.props.items,
-    })
   }
 
   render() {
@@ -23,7 +12,7 @@ class Basket extends React.Component {
         <h2>Tu cesta</h2>
 
         <ul className="details">
-        { this.state.items.map(item => (
+        { this.props.items.map(item => (
           <li className="item" key={item.id}>
             <h4 className="title">{item.title}</h4>
             <span className="price">{parseFloat(item.price).toFixed(2)}€</span>
@@ -34,7 +23,7 @@ class Basket extends React.Component {
 
         <div className="total">
           <span className="price label">Total</span>
-          <span className="price">{this.state.total.toFixed(2)}€</span>
+          <span className="price">{this.props.total.toFixed(2)}€</span>
         </div>
         <button className="checkout">Comprar</button>
       </sidebar>

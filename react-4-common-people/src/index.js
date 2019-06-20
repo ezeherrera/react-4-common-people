@@ -16,16 +16,19 @@ class App extends React.Component {
 
     this.state = {
       basket: [],
+      total: 0.00,
     }
   }
 
   addBookToBasket(book){
     this.setState(state => {
       const basket = state.basket;
+      let total = state.total;
       if (!basket.includes(book)) {
         basket.push(book);
+        total = total + book.price;
       }
-      return { basket };
+      return { basket, total };
     });
   }
 
@@ -34,7 +37,10 @@ class App extends React.Component {
       <div>
         <Header />
         <main className="container">
-          <Basket items={this.state.basket} />
+          <Basket
+            items={this.state.basket}
+            total={this.state.total}
+          />
           <List
             books={books}
             onAddBookToBasket={(book) => this.addBookToBasket(book)}
